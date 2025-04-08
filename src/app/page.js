@@ -213,30 +213,22 @@ export default function Home() {
                 <div className="min-h-[400px] bg-zinc-800 rounded-lg mb-6 overflow-hidden border border-zinc-700 p-8 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">주식회사 에이치엔에스하빈</h3>
-                      <p className="text-gray-400">웹 개발자</p>
+                      <h3 className="text-2xl font-bold text-white mb-2">(주) 다운포스</h3>
+                      <p className="text-gray-400">웹 개발</p>
                     </div>
                     <div className="space-y-3">
                       <div>
-                        <h4 className="text-white mb-2">주요 업무</h4>
+                        <h4 className="text-white mb-2">담당 업무</h4>
                         <ul className="list-disc list-inside space-y-2 text-gray-400">
-                          <li>Spring Boot 기반 웹 서비스 개발 및 유지보수</li>
-                          <li>신규 서비스 기획 및 개발</li>
+                          <li>Node.js 기반 웹 서비스 개발</li>
                           <li>데이터베이스 설계 및 관리</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="text-white mb-2">성과</h4>
-                        <ul className="list-disc list-inside space-y-2 text-gray-400">
-                          <li>레거시 코드 리팩토링을 통한 성능 개선</li>
-                          <li>신규 기능 구현 및 배포</li>
                         </ul>
                       </div>
                     </div>
                   </div>
                   <div className="space-y-4 mt-4">
                     <div className="flex flex-wrap gap-2">
-                      {["Java", "Spring", "MySQL", "JavaScript"].map((tech, i) => (
+                      {["Node.js", "Express", "MySQL", "jQuery", "JavaScript", "CSS", "HTML"].map((tech, i) => (
                         <div key={i} className="flex items-center bg-zinc-900 px-3 py-1 rounded">
                           {techIcons[tech] && (
                             <img
@@ -250,8 +242,8 @@ export default function Home() {
                       ))}
                     </div>
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                      <span className="text-xl font-light text-gray-400">2022.10 - 2023.10</span>
-                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300">1년</span>
+                      <span className="text-xl font-light text-gray-400">2023.06 - 2024.06</span>
+                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300">1년 1개월</span>
                     </div>
                   </div>
                 </div>
@@ -268,30 +260,22 @@ export default function Home() {
                 <div className="min-h-[400px] bg-zinc-800 rounded-lg mb-6 overflow-hidden border border-zinc-700 p-8 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">주식회사 에이치엔에스하빈</h3>
-                      <p className="text-gray-400">웹 퍼블리셔</p>
+                      <h3 className="text-2xl font-bold text-white mb-2">(주) 위셀글로벌</h3>
+                      <p className="text-gray-400">웹 개발</p>
                     </div>
                     <div className="space-y-3">
                       <div>
-                        <h4 className="text-white mb-2">주요 업무</h4>
+                        <h4 className="text-white mb-2">담당 업무</h4>
                         <ul className="list-disc list-inside space-y-2 text-gray-400">
-                          <li>웹 사이트 UI/UX 개선</li>
-                          <li>반응형 웹 페이지 구현</li>
-                          <li>크로스 브라우징 호환성 관리</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="text-white mb-2">성과</h4>
-                        <ul className="list-disc list-inside space-y-2 text-gray-400">
-                          <li>웹 표준 준수를 통한 접근성 개선</li>
-                          <li>사용자 경험 최적화</li>
+                          <li>Java 기반 웹 서비스 개발 및 유지보수</li>
+                          <li>데이터베이스 관리</li>
                         </ul>
                       </div>
                     </div>
                   </div>
                   <div className="space-y-4 mt-4">
                     <div className="flex flex-wrap gap-2">
-                      {["HTML", "CSS", "JavaScript", "jQuery"].map((tech, i) => (
+                      {["Java", "Spring", "MySQL", "jQuery", "JavaScript", "CSS", "HTML"].map((tech, i) => (
                         <div key={i} className="flex items-center bg-zinc-900 px-3 py-1 rounded">
                           {techIcons[tech] && (
                             <img
@@ -305,8 +289,8 @@ export default function Home() {
                       ))}
                     </div>
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-                      <span className="text-xl font-light text-gray-400">2022.03 - 2022.09</span>
-                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300">6개월</span>
+                      <span className="text-xl font-light text-gray-400">2023.03 - 2023.05</span>
+                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300">3개월</span>
                     </div>
                   </div>
                 </div>
@@ -480,8 +464,8 @@ export default function Home() {
                   </div>
                   <div className="space-y-4 mt-4">
                     <div className="flex flex-wrap gap-2">
-                      {["Java", "Spring", "Oracle"].map((tech, i) => (
-                        <div key={i} className="flex items-center bg-zinc-800 px-3 py-1 rounded">
+                      {["Node.js", "Express", "MySQL", "jQuery", "JavaScript", "CSS", "HTML"].map((tech, i) => (
+                        <div key={i} className="flex items-center bg-zinc-900 px-3 py-1 rounded">
                           {techIcons[tech] && (
                             <img
                               src={techIcons[tech]}
