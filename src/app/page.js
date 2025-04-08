@@ -506,11 +506,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-2xl"
           >
-            <h2 className="text-3xl font-bold mb-4 text-zinc-900">Thank your</h2>
+            <h2 className="text-3xl font-bold mb-4 text-zinc-900">Thank you</h2>
             <div className="h-px w-12 bg-zinc-900 mb-12"></div>
             <div className="space-y-6">
               <p className="text-xl text-zinc-900">
-                봐주셔서 감사합니다.
+                방문해주셔서 감사합니다.
               </p>
               <div className="space-y-4">
                 <a 
