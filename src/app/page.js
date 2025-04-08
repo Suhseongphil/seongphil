@@ -426,7 +426,7 @@ export default function Home() {
                   <div className="space-y-4 mt-4">
                     <div className="flex flex-wrap gap-2">
                       {["C++", "Java"].map((tech, i) => (
-                        <div key={i} className="flex items-center bg-zinc-800 px-3 py-1 rounded">
+                        <div key={i} className="flex items-center bg-zinc-900 px-3 py-1 rounded">
                           {techIcons[tech] && (
                             <img
                               src={techIcons[tech]}
