@@ -74,7 +74,7 @@ export default function ProjectModal({ isOpen, onClose, project }) {
 
               <div className="space-y-4">
                 <div className="font-semibold text-white">프로젝트 설명</div>
-                <div className="text-gray-300 whitespace-pre-line">
+                <div className="text-gray-300 whitespace-pre-wrap">
                   {project.description}
                 </div>
               </div>
