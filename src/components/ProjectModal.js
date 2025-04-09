@@ -3,9 +3,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { techIcons } from '@/utils/techIcons';
+import { useState } from 'react';
 
 export default function ProjectModal({ isOpen, onClose, project }) {
   if (!isOpen || !project) return null;
+
+  const [isImageOpen, setIsImageOpen] = useState(false);
 
   return (
     <AnimatePresence>
@@ -82,7 +85,7 @@ export default function ProjectModal({ isOpen, onClose, project }) {
               {project.image_url && (
                 <div className="space-y-4">
                   <div className="font-semibold text-white">프로젝트 이미지</div>
-                  <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
+                  <div className="relative w-full h-[400px] rounded-lg overflow-hidden cursor-pointer" onClick={() => setIsImageOpen(true)}>
                     <Image
                       src={project.image_url}
                       alt={project.title}
@@ -90,6 +93,11 @@ export default function ProjectModal({ isOpen, onClose, project }) {
                       className="object-contain bg-zinc-900"
                     />
                   </div>
+                  {isImageOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={() => setIsImageOpen(false)}>
+                      <img src={project.image_url} alt={project.title} className="max-w-full max-h-full" />
+                    </div>
+                  )}
                 </div>
               )}
             </div>
