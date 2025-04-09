@@ -100,17 +100,24 @@ export default function Home() {
     <main className="min-h-screen bg-zinc-900 text-white font-medium">
       {/* Hero Section */}
       <section id="home" className="h-screen flex items-center justify-center bg-neutral-200">
-        <div className="container mx-auto px-6 flex justify-center">
+        <div className="container mx-auto px-6 flex flex-col items-center justify-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-80 h-80 bg-cover bg-center rounded-full mb-8"
+            style={{ backgroundImage: "url('/images/hero-circle.png')" }}
+          ></motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-2xl text-center"
           >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.6 }}
               className="flex items-center justify-center space-x-4 mb-12"
             >
               <Image
@@ -125,7 +132,7 @@ export default function Home() {
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
               className="text-5xl mb-6 text-zinc-900"
             >
               <span className="font-medium">풀스택 개발자 </span>
@@ -135,7 +142,7 @@ export default function Home() {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 1.0 }}
               className="flex justify-center gap-4 mt-12"
             >
               <a 
