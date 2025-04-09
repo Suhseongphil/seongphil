@@ -128,25 +128,25 @@ export default function Home() {
               transition={{ delay: 0.4 }}
               className="text-5xl mb-6 text-zinc-900"
             >
-              <span className="font-medium">안녕하세요,</span><br />
-              <span className="font-medium">창의적인 웹 경험을 만드는<br/>개발자 </span>
+              {/* <span className="font-medium">게으르지만</span><br /> */}
+              <span className="font-medium">풀스택 개발자 </span>
               <span className="font-bold">서성필</span>
               <span className="font-medium">입니다</span>
             </motion.h1>
-            <motion.p 
+            {/* <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-gray-600 mb-12"
+              className="text-gray-600 mb-12 mt-2"
             >
               사용자 중심의 디자인과 혁신적인 기술로<br />
               멋진 웹 경험을 만들어내는 것을 좋아합니다.
-            </motion.p>
+            </motion.p> */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="flex justify-center gap-4"
+              className="flex justify-center gap-4 mt-12"
             >
               <a 
                 href="#works" 
@@ -250,7 +250,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                       <span className="text-xl font-light text-gray-400">2023.06 - 2024.06</span>
-                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300">1년 1개월</span>
+                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300 whitespace-nowrap max-w-max flex-shrink-0">1년 1개월</span>
                     </div>
                   </div>
                 </div>
@@ -297,7 +297,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                       <span className="text-xl font-light text-gray-400">2023.03 - 2023.05</span>
-                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300">3개월</span>
+                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300 whitespace-nowrap max-w-max flex-shrink-0">3개월</span>
                     </div>
                   </div>
                 </div>
@@ -418,7 +418,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <span className="inline-block px-3 py-1 bg-zinc-800 border border-zinc-700 rounded-full text-sm text-gray-300">
+                      <span className="inline-block px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300 whitespace-nowrap max-w-max flex-shrink-0">
                         학점: 3.56/4.5
                       </span>
                     </div>
@@ -440,7 +440,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                       <span className="text-xl font-light text-gray-400">2017.02 - 2021.02</span>
-                      <span className="px-3 py-1 bg-zinc-800 border border-zinc-700 rounded-full text-sm text-gray-300">졸업</span>
+                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300 whitespace-nowrap max-w-max flex-shrink-0">졸업</span>
                     </div>
                   </div>
                 </div>
@@ -486,7 +486,7 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                       <span className="text-xl font-light text-gray-400">2022.03 - 2022.09</span>
-                      <span className="px-3 py-1 bg-zinc-800 border border-zinc-700 rounded-full text-sm text-gray-300">수료</span>
+                      <span className="px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-sm text-gray-300 whitespace-nowrap max-w-max flex-shrink-0">수료</span>
                     </div>
                   </div>
                 </div>

@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { techIcons } from '@/utils/techIcons';
 
 export default function TechStack() {
-  const techList = Object.entries(techIcons);
+  const includedIcons = ['HTML', 'CSS', 'JavaScript', 'Java', 'Spring','MySQL', 'Node.js', 'Express', 'jQuery', 'Oracle'];
+  const techList = Object.entries(techIcons).filter(([name]) => includedIcons.includes(name));
 
   return (
     <div className="space-y-6">
