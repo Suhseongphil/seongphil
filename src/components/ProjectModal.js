@@ -6,9 +6,9 @@ import { techIcons } from '@/utils/techIcons';
 import { useState } from 'react';
 
 export default function ProjectModal({ isOpen, onClose, project }) {
-  if (!isOpen || !project) return null;
-
   const [isImageOpen, setIsImageOpen] = useState(false);
+  const [isOriginalOpen, setIsOriginalOpen] = useState(false);
+  if (!isOpen || !project) return null;
 
   return (
     <AnimatePresence>
@@ -85,7 +85,7 @@ export default function ProjectModal({ isOpen, onClose, project }) {
               {project.image_url && (
                 <div className="space-y-4">
                   <div className="font-semibold text-white">프로젝트 이미지</div>
-                  <div className="relative w-full h-[400px] rounded-lg overflow-hidden cursor-pointer" onClick={() => setIsImageOpen(true)}>
+                  <div className="relative w-full h-[400px] rounded-lg overflow-hidden cursor-pointer" onClick={() => setIsOriginalOpen(true)}>
                     <Image
                       src={project.image_url}
                       alt={project.title}
@@ -93,8 +93,8 @@ export default function ProjectModal({ isOpen, onClose, project }) {
                       className="object-contain bg-zinc-900"
                     />
                   </div>
-                  {isImageOpen && (
-                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={() => setIsImageOpen(false)}>
+                  {isOriginalOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" onClick={() => setIsOriginalOpen(false)}>
                       <img src={project.image_url} alt={project.title} className="max-w-full max-h-full" />
                     </div>
                   )}
