@@ -123,25 +123,15 @@ export default function Home() {
               <span className="text-4xl font-extrabold text-zinc-900">SeongPhil</span>
             </motion.div>
             <motion.h1 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl mb-6 text-zinc-900"
             >
-              {/* <span className="font-medium">게으르지만</span><br /> */}
               <span className="font-medium">풀스택 개발자 </span>
               <span className="font-bold">서성필</span>
               <span className="font-medium">입니다</span>
             </motion.h1>
-            {/* <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-gray-600 mb-12 mt-2"
-            >
-              사용자 중심의 디자인과 혁신적인 기술로<br />
-              멋진 웹 경험을 만들어내는 것을 좋아합니다.
-            </motion.p> */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
