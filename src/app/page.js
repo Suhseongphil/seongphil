@@ -5,30 +5,40 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import TechStack from '@/components/TechStack';
 import ProjectModal from '@/components/ProjectModal';
-import { createClient } from '@supabase/supabase-js';
 import { techIcons } from '@/utils/techIcons';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-);
+// 프로젝트 데이터
+const projectsData = [
+  {
+    id: 1,
+    title: "사내시스템",
+    company: "다운포스",
+    summary: "사내시스템 쇼핑몰 통합 솔루션",
+    description: "쇼핑몰의 판매, 배송, 재고관리, cs 처리 등 쇼핑몰 관리 통합 시스템입니다.\n쇼핑몰 통합 시스템 개발에 초기 멤버로 참여하였습니다.\n초기 화면구성과 DB 설계 등에 참여하였습니다.\n\n주요수행업무\n\n• 주문 수집 화면 개발 (하단 이미지 화면)\n\t- 쿠팡, 네이버, 카카오 등 기존에 상품을 판매하는 이커머스 업체의 api를 연결하여\n\t  들어온 주문 내역들을 한 번에 수집하여 DB에 적재하는 화면입니다.\n\t- 여러 개의 이커머스 api를 javascript의 Promise.allSettled 을 사용하여 동시에 호출하여 DB에 적재합니다.\n\t- 먼저 완료된 주문 순서대로 로그를 남기고 원하는 이커머스의 주문 내역들만 삭제 가능하게 만들었습니다.\n\n• 상품명, 재고 매칭\n\t- 수집된 주문 내역에 있는 상품과 사내에 보유한 재고와 매칭을 할 수 있는 기능입니다.\n\t- 이커머스에 등록된 상품과 사내에 보유한 제품의 이름이 달라서 수집된 api 데이터를 매칭 시켜주는 기능입니다.\n\t- 매칭은 초기에는 직접 수동으로 매칭하여야 하지만 한 번이라도 매칭 한 적 있는 상품은\n\t  자동 매칭을 통해 한 번에 매칭할 수 있습니다.\n\t- DB에 매칭 테이블을 만들어 매칭 정보를 저장했습니다.\n\n• 재고할당\n\t- 수집된 주문들의 재고가 있는지 확인하여 할당하는 기능입니다.\n\t- 기본적으로 선입선출로 할당되는데 보유 재고보다 주문 재고가 많을 경우\n\t  넘어가고 그다음 주문에 할당되게 개발했습니다.\n\t- SQL 문과 SQL window 함수를 사용하여 개발했습니다.\n\n• 메시지 관리\n\t- 알리고 문자 API 서비스를 연동하여 DB 설계부터 실제 문자발송할 수 있는 화면입니다.\n\t- 소비자가 주문을 완료하면 발송해 주는 문자, 카톡을 보내주는 기능으로\n\t  외부업체(알리고)의 api를 연결하여 만든 기능입니다.",
+    tech_stack: ["Node.js", "MySQL", "CSS", "JavaScript", "HTML", "Express", "jQuery"],
+    image_url: "/images/order_input_screenshot.png"
+  },
+  {
+    id: 2,
+    title: "위탁판매 중개 사이트",
+    company: "위셀글로벌",
+    summary: "위탁판매 중개사이트 개발 및 유지보수",
+    description: "위탁판매 중개 사이트로 사용자 화면과 관리자 화면으로 구성되어 있습니다\n위탁판매 중개 사이트의 개발팀으로 중도 합류하였습니다.\n\n주요수행업무\n\n• 쿠폰 관리 화면\n\t- 관리자 화면은 쿠폰을 발행하고 관리하는 화면을 개발했습니다.\n\t- 관리자가 쿠폰을 생성하면 쿠폰 정보를 DB에 저장하고 지정한 사용자에게 지급하는 방식입니다.\n\t- 사용자 화면은 보유한 쿠폰 목록을 보여주는 화면을 개발했습니다.\n\n• 세금계산서 화면\n\t- 사용자가 본인에게 발행된 세금계산서를 보여주는 화면을 개발했습니다.\n\t- 사용자의 판매 데이터를 바탕으로 자동으로 세금 계산식을 적용하여 보여주는 화면입니다.\n\t- 세금계산서 양식을 첨부하여 PDF 파일로 저장할 수 있게 개발했습니다.",
+    tech_stack: ["HTML", "CSS", "JavaScript", "Java", "MySQL", "Spring", "jQuery"]
+  }
+];
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetchProjects();
-
     const handleScroll = () => {
-      // 스크롤 위치에 따라 네비게이션 바 스타일 변경
       setIsScrolled(window.scrollY > 50);
       
-      // 현재 보이는 섹션 확인
       const sections = ['home', 'about', 'works', 'education', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
@@ -49,27 +59,6 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const fetchProjects = async () => {
-    try {
-      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-        console.error('Supabase credentials are not configured');
-        setProjects([]);
-        return;
-      }
-
-      const { data, error } = await supabase
-        .from('db_projects')
-        .select('*')
-        .order('id', { ascending: true });
-
-      if (error) throw error;
-      setProjects(data || []);
-    } catch (error) {
-      console.error('Error fetching projects:', error);
-      setProjects([]);
-    }
-  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -324,7 +313,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-white mb-2">프로젝트</h2>
             <div className="h-px w-12 bg-white mb-8"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {projects.map((project, index) => (
+              {projectsData.map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 20 }}
